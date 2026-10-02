@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>My TODO List</h1>
+
+    <form id="todo-form" class="todo-form" autocomplete="off">
+      <label for="todo-input">Add a new task</label>
+      <div class="todo-form__row">
+        <input
+          type="text"
+          id="todo-input"
+          name="todo"
+          placeholder="e.g. Buy groceries"
+          required
+          aria-describedby="todo-input-help"
+        />
+        <button type="submit">Add</button>
+      </div>
+      <p id="todo-input-help" class="todo-form__help">
+        Press Enter or select Add to create a task.
+      </p>
+    </form>
+
+    <h2 id="list-heading">Tasks</h2>
+    <p id="empty-state" class="empty-state">No tasks yet. Add one above.</p>
+
+    <ul id="todo-list" class="todo-list" aria-labelledby="list-heading"></ul>
+
+    <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
