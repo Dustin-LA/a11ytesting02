@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible TODO App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <h1>My Accessible TODO List</h1>
+    <p class="subtitle">A small, dependency-free example of an accessible task list.</p>
+  </header>
+
+  <main id="main">
+    <section aria-labelledby="add-heading">
+      <h2 id="add-heading">Add a task</h2>
+      <form id="todo-form" novalidate>
+        <div class="field">
+          <label for="task-input">Task description</label>
+          <input
+            type="text"
+            id="task-input"
+            name="task-input"
+            autocomplete="off"
+            aria-describedby="task-input-hint"
+            required>
+          <p id="task-input-hint" class="hint">
+            Type a task and press Enter or select Add task.
+          </p>
+          <p id="task-input-error" class="error" role="alert" hidden>
+            Please enter a task before adding it.
+          </p>
+        </div>
+        <button type="submit" class="btn btn-primary">Add task</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="list-heading">
+      <h2 id="list-heading">Tasks</h2>
+      <p id="empty-state" class="empty-state">You have no tasks yet. Add one above to get started.</p>
+      <ul id="todo-list" class="todo-list" aria-labelledby="list-heading"></ul>
+    </section>
+  </main>
+
+  <!-- Visually hidden live region announcing changes to assistive technology -->
+  <div id="status" class="visually-hidden" role="status" aria-live="polite"></div>
+
+  <!-- Template for a single task item -->
+  <template id="todo-item-template">
+    <li class="todo-item">
+      <input type="checkbox" class="todo-checkbox">
+      <label class="todo-label"></label>
+      <button type="button" class="btn btn-delete">
+        <span aria-hidden="true">&#10005;</span>
+        <span class="visually-hidden"></span>
+      </button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
